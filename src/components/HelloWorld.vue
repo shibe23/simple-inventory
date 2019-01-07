@@ -1,5 +1,7 @@
 <template>
   <div class="hello">
+    <input type="text" maxlength="20" v-model="newItem">
+    <button type="button" @click="addItem">add</button>
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
@@ -40,6 +42,17 @@ export default Vue.extend({
   name: "HelloWorld",
   props: {
     msg: String
+  },
+  data(){
+    return {
+      newItem: '',
+      items: [] as any,
+    }
+  },
+  methods: {
+    addItem() {
+      this.items.push(this.newItem)
+    }
   }
 });
 </script>
