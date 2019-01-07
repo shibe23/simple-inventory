@@ -46,7 +46,7 @@ export default Vue.extend({
   data(){
     return {
       newItem: '',
-      items: [] as any,
+      items: [] as string[],
     }
   },
   methods: {
