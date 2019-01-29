@@ -25,7 +25,29 @@ export default Vue.extend({
   },
   methods: {
     addItem() {
+      if (this.newItem === '') return false;
+
       this.items.push(this.newItem)
+      this.$router.replace({path: '/', query: this.convertArrayToObj(this.items) });
+    },
+    convertArrayToObj(arr: any) {
+      this.newItem = "";
+      let result = {}
+      arr.forEach((record: any, index: number) => {
+        let obj = {[`item${index}`]: record }
+        Object.assign(result, obj);
+
+      console.log(result)
+      })
+      return result;
+    }
+  },
+  mounted() {
+    for ( let key in this.$route.query) {
+      console.log(key)
+      console.log(this.$route.query[key])
+      this.items.push(this.$route.query[key]) 
+
     }
   }
 });
