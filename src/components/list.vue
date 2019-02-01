@@ -37,17 +37,13 @@ export default Vue.extend({
         let obj = {[`${index}`]: record }
         Object.assign(result, obj);
 
-      console.log(result)
       })
       return result;
     }
   },
   mounted() {
     for ( let key in this.$route.query) {
-      console.log(key)
-      console.log(this.$route.query[key])
       this.items.push(String(this.$route.query[key]))
-
     }
   }
 });
