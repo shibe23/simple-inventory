@@ -3,9 +3,17 @@
     <input type="text" maxlength="20" v-model="newItem">
     <button type="button" @click="addItem">add</button>
 
-    <div v-for="(record, index) in items" :key="index">
-      {{ record }}
-    </div>
+    <ul class="inventory">
+      <li v-for="(record, index) in items" :key="index" class="inventory__list">
+        <div class="inventory__list__content">
+          {{ record }}
+        </div>
+        <div class="inventory__list__action">
+          <button type="button">追加</button>
+          <button type="button">削除</button>
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -13,7 +21,7 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  name: "HelloWorld",
+  name: "List",
   props: {
     msg: String
   },
@@ -54,13 +62,25 @@ export default Vue.extend({
 h3 {
   margin: 40px 0 0;
 }
-ul {
+.inventory {
   list-style-type: none;
   padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  max-width: 640px;
+  margin: 0 auto;
+  
+  &__list {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    &:not(:last-child){
+      border-bottom : 1px dotted #ddd;
+    }
+    &__content {
+
+    }
+  }
 }
 a {
   color: #42b983;
