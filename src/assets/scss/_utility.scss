@@ -1,0 +1,113 @@
+// shape
+@mixin button($width: auto, $radius: 4px) {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: inline-block;
+  width: $width;
+  padding: 0.4rem 1.4rem;
+  background: none;
+  border: 1px solid #EEE;
+  border-radius: $radius;
+  text-align: center;
+}
+
+// state
+@mixin is-hover() {
+  color: $key-color;
+  border-color: $key-color;
+}
+
+// 優先度の名称
+// -- higher
+// -- high
+// -- common
+// -- low
+// -- lower
+// その他パターン
+// -- invert
+
+@mixin is-high() {
+  color: $key-color;
+  border-color: $key-color;
+}
+
+@mixin is-common() {
+  color: #5e5b7e;
+  border-color: #5e5b7e;
+}
+
+@mixin is-invert() {
+  color: #FFF;
+  border-color: #FFF
+}
+
+.u-button {
+  @include button();
+  @include is-common();
+
+  &:hover {
+    @include is-hover();
+  }
+
+  &--high {
+    @extend .u-button;
+    @include is-high();
+  }
+
+  &--invert {
+    @extend .u-button;
+    @include is-invert();
+  }
+}
+
+.u-button_full {
+  @include button(100%, 2rem);
+  @include is-common();
+
+  &:hover {
+    @include is-hover();
+  }
+  &--high {
+    @extend .u-button_full;
+    @include is-high();
+  }
+}
+
+@mixin input() {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+// form
+.input {
+  @include input();
+
+  &__text{
+    width: 100%;
+    padding: 0.4rem 1.2rem;
+    border: 1px solid #dbdbdb;
+    border-radius: 0.4rem;
+  }
+}
+
+.u-title {
+
+}
+
+.u-link {
+  text-decoration: underline;
+}
+
+// material-icons
+.u-icon{
+  padding: 0.9rem;
+
+}
+
+// material-icon固有のclass
+.material-icons {
+  color: #5e5b7e;
+  vertical-align: bottom;
+}

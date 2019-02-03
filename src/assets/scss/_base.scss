@@ -1,0 +1,36 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 62.5%;
+  background-color: #FCFCFC;
+  word-break: break-all;
+}
+
+body{
+  height: 100%;
+  color: #41404b;
+  // color: #050313;
+  font-size: 1.4rem;
+  line-height: 1.8;
+  letter-spacing: 0.06rem;
+  // background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+}
+
+button, input, optgroup, select, textarea{
+  line-height: 1.8;
+}
+
+a {
+  text-decoration: none;
+  color: #41404b;
+
+  &:hover {
+    color: $key-color;
+  }
+}

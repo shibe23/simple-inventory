@@ -1,7 +1,9 @@
 <template>
-  <div class="hello">
-    <input type="text" maxlength="20" v-model="newItem">
-    <button type="button" @click="addItem">add</button>
+  <div class="l-container">
+    <div class="l-container__section">
+      <input type="text" maxlength="20" v-model="newItem">
+      <button type="button" @click="addItem" class="u-button">add</button>
+    </div>
 
     <ul class="inventory">
       <li v-for="(record, index) in items" :key="index" class="inventory__list">
@@ -9,8 +11,8 @@
           {{ record }}
         </div>
         <div class="inventory__list__action">
-          <button type="button">追加</button>
-          <button type="button">削除</button>
+          <button type="button" class="u-button">追加</button>
+          <button type="button" class="u-button" @click="deleteItem(index)">削除</button>
         </div>
       </li>
     </ul>
@@ -36,7 +38,7 @@ export default Vue.extend({
       if (this.newItem === '') return false;
 
       this.items.push(this.newItem)
-      this.$router.replace({path: '/', query: this.convertArrayToObj(this.items) });
+      this.updateURL()
     },
     convertArrayToObj(arr: any) {
       this.newItem = "";
@@ -47,6 +49,13 @@ export default Vue.extend({
 
       })
       return result;
+    },
+    deleteItem(index: number) {
+      this.items.splice(index, 1);
+      this.updateURL()
+    },
+    updateURL() {
+      this.$router.replace({path: '/', query: this.convertArrayToObj(this.items) });
     }
   },
   mounted() {
@@ -60,7 +69,7 @@ export default Vue.extend({
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 h3 {
-  margin: 40px 0 0;
+  margin: 40px 00;
 }
 .inventory {
   list-style-type: none;
