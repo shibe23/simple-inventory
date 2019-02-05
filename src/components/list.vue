@@ -1,8 +1,8 @@
 <template>
   <div class="l-container">
-    <div class="l-container__section">
-      <input type="text" maxlength="20" v-model="newItem">
-      <button type="button" @click="addItem" class="u-button">add</button>
+    <div class="l-container__section h-hide-print">
+      <input type="text" maxlength="20" v-model="newItem" class="input__text">
+      <button type="button" @click="addItem" class="u-button_addon">追加</button>
     </div>
 
     <ul class="inventory">
@@ -11,8 +11,7 @@
           {{ record }}
         </div>
         <div class="inventory__list__action">
-          <button type="button" class="u-button">追加</button>
-          <button type="button" class="u-button" @click="deleteItem(index)">削除</button>
+          <button type="button" class="u-button h-hide-print" @click="deleteItem(index)">削除</button>
         </div>
       </li>
     </ul>

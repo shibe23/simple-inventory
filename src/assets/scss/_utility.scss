@@ -61,15 +61,15 @@
   }
 }
 
-.u-button_full {
-  @include button(100%, 2rem);
+.u-button_addon {
+  @include button(30%, 0.4rem);
   @include is-common();
 
   &:hover {
     @include is-hover();
   }
   &--high {
-    @extend .u-button_full;
+    @extend .u-button_addon;
     @include is-high();
   }
 }
@@ -85,7 +85,8 @@
   @include input();
 
   &__text{
-    width: 100%;
+    display: inline-block;
+    width: 70%;
     padding: 0.4rem 1.2rem;
     border: 1px solid #dbdbdb;
     border-radius: 0.4rem;

@@ -9,3 +9,9 @@
     vertical-align: middle;
   }
 }
+
+.h-hide-print {
+  @media print{
+    display:none;
+  }
+}

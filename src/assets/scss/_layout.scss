@@ -1,4 +1,8 @@
 .l-container{
+  @media print{
+    max-width: 50%;
+  }
+
   padding: 1rem 0.5rem 0;
   
   &__section {
