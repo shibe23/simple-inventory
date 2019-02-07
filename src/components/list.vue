@@ -5,16 +5,18 @@
       <button type="button" @click="addItem" class="u-button_addon">追加</button>
     </div>
 
-    <ul class="inventory">
-      <li v-for="(record, index) in items" :key="index" class="inventory__list">
-        <div class="inventory__list__content">
-          {{ record }}
-        </div>
-        <div class="inventory__list__action">
-          <button type="button" class="u-button h-hide-print" @click="deleteItem(index)">削除</button>
-        </div>
-      </li>
-    </ul>
+    <div class="l-container__section">
+      <ul class="inventory">
+        <li v-for="(record, index) in items" :key="index" class="inventory__list">
+          <div class="inventory__list__content">
+            {{ record }}
+          </div>
+          <div class="inventory__list__action">
+            <button type="button" class="u-button h-hide-print" @click="deleteItem(index)">削除</button>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -39,10 +41,10 @@ export default Vue.extend({
       this.items.push(this.newItem)
       this.updateURL()
     },
-    convertArrayToObj(arr: any) {
+    convertArrayToObj(arr: string[]) {
       this.newItem = "";
       let result = {}
-      arr.forEach((record: any, index: number) => {
+      arr.forEach((record: string, index: number) => {
         let obj = {[`${index}`]: record }
         Object.assign(result, obj);
 
